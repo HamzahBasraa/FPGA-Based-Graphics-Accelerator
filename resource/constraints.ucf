@@ -1,0 +1,135 @@
+################################################################################
+# Pad selection
+################################################################################
+NET top_clk      LOC=C9;
+
+NET fs_a_pad[0]  LOC=G16;
+NET fs_a_pad[1]  LOC=B16;
+NET fs_a_pad[2]  LOC=C16;
+NET fs_a_pad[3]  LOC=C15;
+NET fs_a_pad[4]  LOC=D14;
+NET fs_a_pad[5]  LOC=D15;
+NET fs_a_pad[6]  LOC=D16;
+NET fs_a_pad[7]  LOC=E13;
+NET fs_a_pad[8]  LOC=E14;
+NET fs_a_pad[9]  LOC=E15;
+NET fs_a_pad[10]  LOC=E16;
+NET fs_a_pad[11]  LOC=F12;
+NET fs_a_pad[12]  LOC=F13;
+NET fs_a_pad[13]  LOC=F14;
+NET fs_a_pad[14]  LOC=F15;
+NET fs_a_pad[15]  LOC=G12;
+NET fs_a_pad[16]  LOC=G13;
+NET fs_a_pad[17]  LOC=G14;
+
+NET fs_ncs_pad[0] LOC=B11;
+NET fs_ncs_pad[1] LOC=E10;
+
+NET fs_noe_pad LOC=H13;
+NET fs_nwe_pad LOC=G15;
+NET fs_nbs_pad[3] LOC = A10;
+NET fs_nbs_pad[2] LOC = B10;
+NET fs_nbs_pad[1] LOC = C11;
+NET fs_nbs_pad[0] LOC = D10;
+
+NET pixel_pad[14] LOC = P1;
+NET pixel_pad[13] LOC = N3;
+NET pixel_pad[12] LOC = N1;
+NET pixel_pad[11] LOC = M3;
+NET pixel_pad[10] LOC = M1;
+NET pixel_pad[9] LOC =  L4;
+NET pixel_pad[8] LOC =  L2;
+NET pixel_pad[7] LOC =  K4;
+NET pixel_pad[6] LOC = K5;
+NET pixel_pad[5] LOC = L3;
+NET pixel_pad[4] LOC = L5;
+NET pixel_pad[3] LOC = M2;
+NET pixel_pad[2] LOC = M4;
+NET pixel_pad[1] LOC = N2;
+NET pixel_pad[0] LOC = P2;
+
+NET nCS_pad LOC = R4;
+NET nCS1_pad LOC = T4;
+NET nWR_pad LOC = T14 | CLOCK_DEDICATED_ROUTE = FALSE;
+NET nRD_pad LOC = T13;
+
+NET A_pad[1] LOC = P13;
+NET A_pad[2] LOC = K13;
+NET A_pad[3] LOC = J14;
+NET A_pad[4] LOC = J13;
+NET A_pad[5] LOC = J16;
+NET A_pad[6] LOC = K16;
+
+NET nBS_pad[0] LOC = N12;
+NET nBS_pad[1] LOC = T5;
+
+NET irq_pad LOC = R5;
+
+NET vsync_pad LOC = J2;
+NET hsync_pad LOC = H15;
+
+
+NET fs_dw_pad[0] LOC = A5;
+NET fs_dw_pad[1] LOC = A7;
+NET fs_dw_pad[2] LOC = A3;
+NET fs_dw_pad[3] LOC = D5;
+NET fs_dw_pad[4] LOC = B4;
+NET fs_dw_pad[5] LOC = A4;
+NET fs_dw_pad[6] LOC = C5;
+NET fs_dw_pad[7] LOC = B5;
+NET fs_dw_pad[8] LOC = E6;
+NET fs_dw_pad[9] LOC = D6;
+NET fs_dw_pad[10] LOC = C6;
+NET fs_dw_pad[11] LOC = B6;
+NET fs_dw_pad[12] LOC = E7;
+NET fs_dw_pad[13] LOC = D7;
+NET fs_dw_pad[14] LOC = C7;
+NET fs_dw_pad[15] LOC = B7;
+NET fs_dw_pad[16] LOC = D8;
+NET fs_dw_pad[17] LOC = C8;
+NET fs_dw_pad[18] LOC = B8;
+NET fs_dw_pad[19] LOC = A8;
+NET fs_dw_pad[20] LOC = A9;
+NET fs_dw_pad[21] LOC = A12;
+NET fs_dw_pad[22] LOC = C10;
+NET fs_dw_pad[23] LOC = D12;
+NET fs_dw_pad[24] LOC = A14;
+NET fs_dw_pad[25] LOC = B14;
+NET fs_dw_pad[26] LOC = A13;
+NET fs_dw_pad[27] LOC = B13;
+NET fs_dw_pad[28] LOC = B12;
+NET fs_dw_pad[29] LOC = C12;
+NET fs_dw_pad[30] LOC = D11;
+NET fs_dw_pad[31] LOC = E11;
+
+NET SW_pad[0] LOC = N16;
+NET SW_pad[1] LOC = P15;
+NET SW_pad[2] LOC = P16;
+NET SW_pad[3] LOC = H1;
+NET SW_pad[4] LOC = H3;
+NET SW_pad[5] LOC = G3;
+
+NET LED_pad[0] LOC = E1;
+NET LED_pad[1] LOC = D1;
+NET LED_pad[2] LOC = C1;
+NET LED_pad[3] LOC = F4;
+NET LED_pad[4] LOC = E3;
+NET LED_pad[5] LOC = C2;
+
+
+NET DBUS_pad[0] LOC = T12;
+NET DBUS_pad[1] LOC = T10;
+NET DBUS_pad[2] LOC = P12;
+NET DBUS_pad[3] LOC = R12;
+NET DBUS_pad[4] LOC = P11;
+NET DBUS_pad[5] LOC = R11;
+NET DBUS_pad[6] LOC = M10;
+NET DBUS_pad[7] LOC = N10;
+NET DBUS_pad[8] LOC = N5;
+NET DBUS_pad[9] LOC = P7;
+NET DBUS_pad[10] LOC = T8;
+NET DBUS_pad[11] LOC = P5;
+NET DBUS_pad[12] LOC = R6;
+NET DBUS_pad[13] LOC = P6;
+NET DBUS_pad[14] LOC = N7;
+NET DBUS_pad[15] LOC = M7;
