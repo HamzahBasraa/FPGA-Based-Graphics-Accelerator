@@ -48,7 +48,7 @@ assign de_req5 = req[5];
 assign de_req6 = req[6];
 assign de_req7 = req[7];
 
-assign de_ack = de_ack7 ||  de_ack6 ||  de_ack5 ||  de_ack4
-                   || de_ack3 ||  de_ack2 ||  de_ack1 ||  de_ack0;
+assign de_ack = de_ack7 || de_ack6 || de_ack5 || de_ack4
+             || de_ack3 || de_ack2 || de_ack1 || de_ack0;
 
 endmodule

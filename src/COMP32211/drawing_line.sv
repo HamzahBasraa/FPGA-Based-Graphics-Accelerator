@@ -1,10 +1,10 @@
 /** 
   Module:           drawing_line
-  Description:      This module implements a line drawing algorithm for the drawing engine.
-                     
+  Description:      This module implements a line drawing algorithm for
+                    the drawing engine.
 
   Authors:          James Garside & Anthony Mathews
-  Modified:         July 2025
+  Modified:         August 2025
 */
 
 `timescale 1ns / 10ps
@@ -15,6 +15,7 @@ module drawing_line (
     input  logic        req,
     output logic        ack,
     output logic        busy,
+    output logic        done,
     input  logic [17:0] display_base,
     input  logic [9:0]  display_height,
     input  logic [1:0]  display_mode,
@@ -26,7 +27,7 @@ module drawing_line (
     input  logic [31:0] r4,
     input  logic [31:0] r5,
     input  logic [31:0] r6,
-    input  logic [15:0] r7,
+    input  logic [31:0] r7,
     output logic        de_req,
     input  logic        de_ack,
     output logic [17:0] de_addr,
@@ -55,7 +56,7 @@ logic [19:0] twostep_ext;
 logic [11:0] compare;
 logic [19:0] address_in;
 
-assign address_in = {r5[3:0], r4};
+assign address_in   = r4[19:0];
 assign onestep_ext = { {9{onestep[10]}}, onestep };
 assign twostep_ext = { {9{twostep[10]}}, twostep };
 assign compare = error - (db << 1);
@@ -78,9 +79,11 @@ always_ff @(posedge clk) begin
         address    <= '0;
         length     <= '0;
         colour     <= '0;
+        done       <= '0;
     end else begin
         case (draw_state)
             IDLE: begin
+                done <= '0;
                 if (req) begin
                     ack      <= 1'b1;
                     error    <= r0[9:0];
@@ -117,6 +120,7 @@ always_ff @(posedge clk) begin
             end
             FINAL_REQ : begin 
                 draw_state <= IDLE; 
+                done <= '1;
             end
         endcase
     end

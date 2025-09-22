@@ -12,7 +12,7 @@
 
 `timescale 1ns / 1ps
 
-module sram_ctrl(input  wire        clk,
+module mock_sram_ctrl(input  wire        clk,
                  input  wire        reset,
 
                  input  wire        CS_A,                     /* VDU read bus */
@@ -110,9 +110,8 @@ if (idle)                                                 /* Priority encoder */
 end
 
 always @ (posedge clk)
-if (reset) granted <= 3'b000;
-else if (idle) granted <= grant;
-     else if (next_idle) granted <= 3'b000;
+if (reset || next_idle) granted <= 3'b000;
+else if (idle)          granted <= grant;
 
 assign select = grant | ({3{!idle}} & granted);
 
@@ -130,9 +129,9 @@ else      stall = req & ~granted;
 /** Issues */
 always_comb
 begin 
-  if (read != 0) de_ack = grant[2];    /* Reads acknowledge as soon as granted */
+  if (read[2])  de_ack = grant[2];    /* Reads acknowledge as soon as granted */
   else
-  if (write != 0) de_ack = granted[2]; /* Writes delay ack to allow 2 cycle op. */
+  if (write[2]) de_ack = granted[2]; /* Writes delay ack to allow 2 cycle op. */
   else de_ack = 1'b0; 
 end
 

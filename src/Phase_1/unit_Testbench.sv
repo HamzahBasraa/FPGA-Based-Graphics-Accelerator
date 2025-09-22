@@ -12,7 +12,7 @@
 
 `timescale 1ns / 10ps
 
-module drawing_Testbench ();
+module unit_Testbench ();
 
 `define CLOCK_PERIOD   10		// Some constant definitions
 `define MAX_CYCLES     50
@@ -38,12 +38,13 @@ wire [17:0]  de_addr;
 wire  [3:0]  de_nbyte;
 wire [31:0]  de_data;
 
-// All the units for test have the same interface specification.
-// You can change what is instantiated as 'drawing_line' by varying 'unit_?'
+/* All the units for test have the same interface specification.             */
+/* You can change what is instantiated as 'drawing_line' by varying 'unit_?' */
 unit_1 drawing_line ( .clk      (clk),
                       .req      (req),
                       .ack      (ack),
                       .busy     (busy),
+//                    .reset    (    ),    // Not used in these instances
                       .r0       (r0),
                       .r1       (r1),
                       .r2       (r2),
@@ -115,7 +116,7 @@ endtask
 // Feel free to improve it!
 
 
-// -------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 // CONCURRENT ASSERTIONS FOR COMMAND INTERFACE, assumes synchronous behaviour
 // ON posedge clk, if criteria is true "|->" perform test
@@ -127,8 +128,6 @@ assertAckOnlyOneCycleLong: assert property (@(posedge clk) (ack == 1 |-> ##1 ack
 assertReqNotRaisedWhilstBusy: assert property (@(posedge clk) (busy == 1 |->  not $rose(req))) 
                       else $warning("Warning req raised while busy is active");
 
-
 endmodule
 
- 
 /*============================================================================*/

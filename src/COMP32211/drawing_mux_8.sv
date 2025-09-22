@@ -79,8 +79,11 @@ module drawing_mux_8(   input  wire        clk,
 		    output wire [31:0] de_data,
 		    input  wire [31:0] de_rd_data);
 
-reg  [2:0] pending_req;
-reg  [2:0] current_req;
+reg  [2:0] pending_req;                              /* Encoded input request */
+reg        hold;                    /* The output request needs to be latched */
+reg        held;          /* The output request is latched waiting for de_ack */
+reg  [2:0] held_req;                                   /* Staticised requests */
+reg  [2:0] current_req;           /* Output request: immediate if not latched */
 reg  [7:0] current_ack;
 
 reg        mux_rnw;
@@ -121,7 +124,7 @@ casex ({req7, req6, req5, req4, req3, req2, req1, req0})
   8'bxx10_0000: pending_req = 5;
   8'bx100_0000: pending_req = 6;
   8'b1000_0000: pending_req = 7;
-  default: pending_req = 0;
+  default:      pending_req = 0;
 endcase
 
 
@@ -191,9 +194,12 @@ case (pending_req)
      end
 endcase
 
+assign hold = de_req && !de_ack;                              /* Output stall */
+always @ (posedge clk) held <= hold;                /* Output requests frozen */
 
-always @ (posedge clk)		// Hold requests to direct ack correctly
-if (!de_ack) current_req <= pending_req;
+always @ (posedge clk) if (hold) held_req <= current_req;
+                           /* Hold requests to direct ack correctly as needed */
+assign current_req = held ? held_req : pending_req;         /* Hold or bypass */
 
 always @ (de_ack, current_req)
 case (current_req)
