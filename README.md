@@ -7,7 +7,7 @@ The project implements hardware-accelerated drawing operations, with a focus on 
 The accelerator is controlled by a RISC-V processor through a memory-mapped register interface and writes generated pixels to a simulated frame buffer.
 
 ---
-
+It is important to know many aditional files have been removed such as any python scripts i made as well as any non verilog code and the files remaining are the core of the project that i developed myself. 
 ## Project Overview
 
 The goal of this project was to move graphics processing from software running on a RISC-V processor into dedicated FPGA hardware.
