@@ -1,8 +1,8 @@
 /******************************************************************************/
 /*                                                                            */
 /*  Module:   template                                                        */
-/*  Modified: August 2025                                                     */
-/*  Author:   J Garside                                                       */
+/*  Modified: December 2025                                                   */
+/*  Author:   Hamzah Basraa                                                   */
 /*                                                                            */
 /*  Description:                                                              */
 /*  This is an inactive cell which takes the place of a drawing function.     */
