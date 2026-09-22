@@ -1,13 +1,12 @@
 /******************************************************************************/
 /* Module:   drawing_Testbench                                                */
-/* Modified: July 2025                                                        */
-/* Author:   J Garside                                                        */
+/* Modified: December 2025                                                    */
+/* Author:   Hamzah Basraa                                                    */
 /*                                                                            */
 /* Description:                                                               */
 /*                                                                            */
-/* Skeleton testbench: a template to get COMP32211 phase 1 tests started.     */
-/*            As supplied this does not do very much actual verification! :-) */
-/*                                                                            */
+/* This is a testbench where i have ran a variety of different tests to       */
+/* check that a module is running as expected                                 */
 /******************************************************************************/
 
 `timescale 1ns / 10ps
